@@ -38,9 +38,7 @@ node {
                 echo 'Exception occurred: ' + e.toString()
         }    
         sh "git clone https://github.com/sureshbenedy/jpasamplehsqldb.git"
-        sh "cd jpasamplehsqldb"
-        sh "pwd"
-        sh "mvn clean install"
+        sh "cd jpasamplehsqldb ; pwd ; mvn clean install"
         print 'specificCause ${specificCause}'
         print 'second stage test finished'
     }
