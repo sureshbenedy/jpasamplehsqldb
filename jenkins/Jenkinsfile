@@ -24,6 +24,7 @@ node {
 
     stage('second-node') {
         print 'second stage test'
+        sh "pwd"
         print 'specificCause ${specificCause}'
         print 'second stage test finished'
     }
