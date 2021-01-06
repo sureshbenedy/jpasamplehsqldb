@@ -31,6 +31,11 @@ node {
         echo "Toggle: ${params.TOGGLE}"
         echo "Choice: ${params.CHOICE}"
         echo "Password: ${params.PASSWORD}"
+        if(${params.TOGGLE} = true) {
+            echo "Toggling"
+        } else {
+            echo "Will not toggle"
+        }
     }
 
    stage('Test Username/Password') {
