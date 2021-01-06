@@ -2,7 +2,7 @@
 stage "first step on first node"
 
 // Run on a node with the "first-node" label.
-node('first-node') {
+stage('first-node') {
     // Make the output directory.
     sh "mkdir -p output"
 
@@ -20,7 +20,7 @@ node('first-node') {
 stage "second step on second node"
 
 // Run on a node with the "second-node" label.
-node('second-node') {
+stage('second-node') {
     // Run the unstash from within that directory!
     dir("first-stash") {
         unstash "first-stash"
