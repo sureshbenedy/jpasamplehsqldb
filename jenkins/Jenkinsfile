@@ -33,6 +33,8 @@ node {
         sh "cd build"
         sh "pwd"
         sh "git clone https://github.com/sureshbenedy/jpasamplehsqldb.git"
+        sh "cd jpasamplehsqldb"
+        sh "pwd"
         sh "mvn clean install"
         print 'specificCause ${specificCause}'
         print 'second stage test finished'
