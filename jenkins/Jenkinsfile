@@ -31,7 +31,7 @@ node {
         echo "Toggle: ${params.TOGGLE}"
         echo "Choice: ${params.CHOICE}"
         echo "Password: ${params.PASSWORD}"
-        if(${params.TOGGLE}) {
+        if("${params.TOGGLE}" == "true") {
             echo "Toggling"
         } else {
             echo "Will not toggle"
