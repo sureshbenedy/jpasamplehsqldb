@@ -8,7 +8,7 @@ class SampleJpaApplicationTests {
 
 	@Test
 	void contextLoads() {
-		System.out.println(String.format("Environment Value received is : %s",System.getProperty("CHOICE")));
+		System.out.println(String.format("-----> Environment Value received is : %s",System.getProperty("CHOICE")));
 	}
 
 }
