@@ -32,6 +32,11 @@ node {
         }
         sh "cd build"
         sh "pwd"
+        try {
+            sh "rm -rf jpasamplehsqldb"
+        } catch (Exception e) {
+                echo 'Exception occurred: ' + e.toString()
+        }    
         sh "git clone https://github.com/sureshbenedy/jpasamplehsqldb.git"
         sh "cd jpasamplehsqldb"
         sh "pwd"
