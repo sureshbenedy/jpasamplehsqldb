@@ -24,7 +24,12 @@ node {
 
     stage('second-node') {
         print 'second stage test'
+        try{
         sh "mkdir build"
+        } catch (Exception e) {
+                echo 'Exception occurred: ' + e.toString()
+                sh 'echo Handle the exception!'
+        }
         sh "cd build"
         sh "pwd"
         sh "git clone https://github.com/sureshbenedy/jpasamplehsqldb.git"
