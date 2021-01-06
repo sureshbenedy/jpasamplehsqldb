@@ -24,7 +24,12 @@ node {
 
     stage('second-node') {
         print 'second stage test'
+        sh "cd /src/git"
+        sh "mkdir build"
+        sh "cd build"
         sh "pwd"
+        sh "git checkout https://github.com/sureshbenedy/jpasamplehsqldb.git"
+        sh "mvn clean install"
         print 'specificCause ${specificCause}'
         print 'second stage test finished'
     }
