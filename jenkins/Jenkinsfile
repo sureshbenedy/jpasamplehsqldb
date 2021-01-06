@@ -1,21 +1,28 @@
-// First we'll generate a text file in a subdirectory on one node and stash it.
-stage "first step on first node"
+#!groovy
 
-// Run on a node with the "first-node" label.
-stage('first-node') {
-    // Make the output directory.
-print 'first stage test'
-    print 'first stage test finished'
-}
+node {
+    // Get all Causes for the current build
+    def causes = currentBuild.getBuildCauses()
 
-// Next, we'll make a new directory on a second node, and unstash the original
-// into that new directory, rather than into the root of the build.
-stage "second step on second node"
+    // Get a specific Cause type (in this case the user who kicked off the build),
+    // if present.
+    def specificCause = currentBuild.getBuildCauses('hudson.model.Cause$UserIdCause')
 
-// Run on a node with the "second-node" label.
-stage('second-node') {
-    print 'second stage test'
-    // And look, output directory is there under first-stash!
-    sh "ls -la"
-    print 'second stage test finished'
+    // First we'll generate a text file in a subdirectory on one node and stash it.
+    stage "first step on first node"
+
+    
+    stage('first-node') {
+        print 'first stage test'
+        print 'causes ${causes}'
+        print 'first stage test finished'
+    }
+
+    stage "second step on second node"
+
+    stage('second-node') {
+        print 'second stage test'
+        print 'specificCause ${specificCause}'
+        print 'second stage test finished'
+    }
 }
